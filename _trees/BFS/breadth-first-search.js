@@ -25,3 +25,24 @@ function BFS(root, value) {
   
   return undefined
 }
+
+// без shift
+function BFS(root, value) {
+  if (!root) return undefined
+
+  const queue = [root]
+
+  let i = 0
+
+  while (i < queue.length) {
+    const node = queue[i]
+
+    if (node.value === value) return node
+
+    queue.push(...node.children)
+
+    i++
+  }
+  
+  return undefined
+}
