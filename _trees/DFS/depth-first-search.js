@@ -35,3 +35,23 @@ function DFS(node, value) {
  
   return undefined
 } 
+
+function visitedDFSrec (graph, v, visited = {}) {
+  visited[v] = true
+
+  graph[v].forEach(child => {
+    if (!visited[child])
+      visitedDFSrec(graph, child, visited)
+  });
+}
+
+function topologicSort (graph, v, visited, result) {
+  visited[v] = true
+
+  graph[v].forEach(to => {
+    if(!visited[to])
+      topologicSort(graph, child, visited, order)
+  });
+
+  result.push(v)
+}
